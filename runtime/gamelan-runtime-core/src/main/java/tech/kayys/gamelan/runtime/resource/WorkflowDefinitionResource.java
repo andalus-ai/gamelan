@@ -53,6 +53,15 @@ public class WorkflowDefinitionResource {
     }
 
     @GET
+    @Path("/by-fingerprint/{fingerprint}")
+    public Uni<WorkflowDefinition> getByFingerprint(
+            @PathParam("fingerprint") String fingerprint,
+            @QueryParam("name") String name,
+            @QueryParam("version") String version) {
+        return service.getByFingerprint(name, version, fingerprint, tenant());
+    }
+
+    @GET
     @Path("/{id}")
     public Uni<WorkflowDefinition> get(@PathParam("id") String id) {
         return service.get(new WorkflowDefinitionId(id), tenant());

@@ -45,6 +45,12 @@ public class LocalWorkflowDefinitionClient implements WorkflowDefinitionClient {
     }
 
     @Override
+    public Uni<WorkflowDefinition> getWorkflowByFingerprint(String name, String version, String fingerprint) {
+        checkClosed();
+        return definitionService().getByFingerprint(name, version, fingerprint, tenantId);
+    }
+
+    @Override
     public Uni<List<WorkflowDefinition>> listWorkflows() {
         return listWorkflows(true);
     }

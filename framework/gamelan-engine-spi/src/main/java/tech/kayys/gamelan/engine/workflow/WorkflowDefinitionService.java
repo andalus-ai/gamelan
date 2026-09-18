@@ -28,6 +28,21 @@ public interface WorkflowDefinitionService {
                         String name,
                         TenantId tenantId);
 
+        default Uni<WorkflowDefinition> getByFingerprint(
+                        String name,
+                        String version,
+                        String fingerprint,
+                        TenantId tenantId) {
+                return list(tenantId, true).map(defs -> defs.stream()
+                                .filter(def -> (name == null || name.equals(def.name()))
+                                                && (version == null || version.equals(def.version()))
+                                                && def.metadata() != null
+                                                && def.metadata().labels() != null
+                                                && fingerprint.equals(def.metadata().labels().get("wayang.coordination.fingerprint")))
+                                .findFirst()
+                                .orElse(null));
+        }
+
         Uni<WorkflowDefinition> update(
                         WorkflowDefinitionId id,
                         UpdateWorkflowDefinitionRequest request,

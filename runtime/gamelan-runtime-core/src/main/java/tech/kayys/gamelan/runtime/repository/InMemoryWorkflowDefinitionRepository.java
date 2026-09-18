@@ -65,6 +65,22 @@ public class InMemoryWorkflowDefinitionRepository implements WorkflowDefinitionR
     }
 
     @Override
+    public Uni<WorkflowDefinition> findByFingerprint(String name, String version, String fingerprint, TenantId tenantId) {
+        if (fingerprint == null || fingerprint.isBlank()) {
+            return Uni.createFrom().nullItem();
+        }
+        return Uni.createFrom().item(definitions.values().stream()
+                .filter(d -> d.tenantId().equals(tenantId))
+                .filter(d -> name == null || d.name().equals(name))
+                .filter(d -> version == null || d.version().equals(version))
+                .filter(d -> Boolean.TRUE.equals(activeStates.getOrDefault(key(d.id(), tenantId), true)))
+                .filter(d -> d.metadata() != null && d.metadata().labels() != null
+                        && fingerprint.equals(d.metadata().labels().get("wayang.coordination.fingerprint")))
+                .findFirst()
+                .orElse(null));
+    }
+
+    @Override
     public Uni<Void> setActive(WorkflowDefinitionId id, TenantId tenantId, boolean active) {
         DefinitionKey key = key(id, tenantId);
         if (definitions.containsKey(key)) {

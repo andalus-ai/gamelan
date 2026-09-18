@@ -53,6 +53,24 @@ public interface WorkflowDefinitionClient extends AutoCloseable {
     }
 
     /**
+     * Retrieves a workflow definition by its name, version, and fingerprint.
+     *
+     * @param name the name of the workflow
+     * @param version the version of the workflow
+     * @param fingerprint the fingerprint of the workflow definition
+     * @return a Uni containing the definition details, or null if not found
+     */
+    default Uni<WorkflowDefinition> getWorkflowByFingerprint(String name, String version, String fingerprint) {
+        return listWorkflows(true).map(defs -> defs.stream()
+                .filter(d -> (name == null || name.equals(d.name()))
+                        && (version == null || version.equals(d.version()))
+                        && d.metadata() != null && d.metadata().labels() != null
+                        && fingerprint.equals(d.metadata().labels().get("wayang.coordination.fingerprint")))
+                .findFirst()
+                .orElse(null));
+    }
+
+    /**
      * Deletes a workflow definition.
      *
      * @param definitionId the unique ID of the workflow definition

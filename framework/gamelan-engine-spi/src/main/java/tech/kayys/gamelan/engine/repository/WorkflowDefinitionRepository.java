@@ -23,6 +23,21 @@ public interface WorkflowDefinitionRepository {
 
     Uni<WorkflowDefinition> findByName(String name, TenantId tenantId);
 
+    default Uni<WorkflowDefinition> findByFingerprint(String name, String version, String fingerprint, TenantId tenantId) {
+        if (fingerprint == null || fingerprint.isBlank()) {
+            return Uni.createFrom().nullItem();
+        }
+        return findByTenant(tenantId, true)
+                .map(list -> list.stream()
+                        .filter(def -> (name == null || name.equals(def.name()))
+                                && (version == null || version.equals(def.version()))
+                                && def.metadata() != null
+                                && def.metadata().labels() != null
+                                && fingerprint.equals(def.metadata().labels().get("wayang.coordination.fingerprint")))
+                        .findFirst()
+                        .orElse(null));
+    }
+
     default Uni<Void> setActive(WorkflowDefinitionId id, TenantId tenantId, boolean active) {
         return active ? Uni.createFrom().voidItem() : delete(id, tenantId);
     }

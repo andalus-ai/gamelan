@@ -291,6 +291,15 @@ public class WorkflowDefinitionService implements tech.kayys.gamelan.engine.work
         return registry.getByName(name, tenantId);
     }
 
+    @Override
+    public Uni<WorkflowDefinition> getByFingerprint(
+            String name,
+            String version,
+            String fingerprint,
+            tech.kayys.gamelan.engine.tenant.TenantId tenantId) {
+        return registry.getByFingerprint(name, version, fingerprint, tenantId);
+    }
+
     public Uni<WorkflowDefinition> update(
             tech.kayys.gamelan.engine.workflow.WorkflowDefinitionId id,
             tech.kayys.gamelan.engine.workflow.dto.UpdateWorkflowDefinitionRequest request,

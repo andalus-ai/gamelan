@@ -83,4 +83,33 @@ public class WorkflowDefinitionOperations {
     public Uni<Void> delete(String definitionId) {
         return client.deleteWorkflow(definitionId);
     }
+
+    /**
+     * Retrieves a workflow definition matching the given name, version, and fingerprint.
+     *
+     * @param name workflow name
+     * @param version workflow version
+     * @param fingerprint SHA-256 fingerprint
+     * @return a Uni containing the workflow definition or null
+     */
+    public Uni<WorkflowDefinition> getByFingerprint(String name, String version, String fingerprint) {
+        return client.getWorkflowByFingerprint(name, version, fingerprint);
+    }
+
+    /**
+     * Creates a workflow definition directly from an immutable model instance.
+     *
+     * @param definition the definition to create
+     * @return a Uni containing the created definition
+     */
+    public Uni<WorkflowDefinition> create(WorkflowDefinition definition) {
+        return client.createWorkflow(definition);
+    }
+
+    /**
+     * @return underlying WorkflowDefinitionClient
+     */
+    public WorkflowDefinitionClient client() {
+        return client;
+    }
 }

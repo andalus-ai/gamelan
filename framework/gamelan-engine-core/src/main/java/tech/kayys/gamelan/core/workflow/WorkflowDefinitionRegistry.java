@@ -165,6 +165,38 @@ public class WorkflowDefinitionRegistry {
     }
 
     /**
+     * Get workflow definition by name, version, and fingerprint
+     */
+    public Uni<WorkflowDefinition> getByFingerprint(
+            String name,
+            String version,
+            String fingerprint,
+            TenantId tenantId) {
+
+        if (fingerprint == null || fingerprint.isBlank()) {
+            return Uni.createFrom().nullItem();
+        }
+
+        String cacheKey = tenantId.value() + ":fp:" + fingerprint;
+        WorkflowDefinition cached = cache.get(cacheKey);
+        if (cached != null) {
+            LOG.trace("Definition found in cache by fingerprint: {}", fingerprint);
+            return Uni.createFrom().item(cached);
+        }
+
+        return repository.findByFingerprint(name, version, fingerprint, tenantId)
+                .map(definition -> {
+                    if (definition != null) {
+                        cache.put(cacheKey, definition);
+                        String idKey = tenantId.value() + ":" + definition.id().value();
+                        cache.put(idKey, definition);
+                        LOG.debug("Loaded and cached definition by fingerprint: {}", fingerprint);
+                    }
+                    return definition;
+                });
+    }
+
+    /**
      * Invalidate cache for a definition
      */
     public void invalidateCache(WorkflowDefinitionId id, TenantId tenantId) {
