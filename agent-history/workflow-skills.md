@@ -9,7 +9,7 @@
 
 ### 👤 User
 
-can you create skills of inference-gollek like this wayang/skills
+can you create skills of inference-aqli like this wayang/skills
 
 ---
 
@@ -17,14 +17,14 @@ can you create skills of inference-gollek like this wayang/skills
 
 ### 💭 Reasoning
 
-*The user is asking me to create skills in the `inference-gollek` directory similar to how they are organized in the `wayang/skills` directory. 
+*The user is asking me to create skills in the `inference-aqli` directory similar to how they are organized in the `wayang/skills` directory. 
 
-Let me first understand the current structure by exploring the `wayang/skills` directory and `inference-gollek` directory to understand what needs to be replicated.
+Let me first understand the current structure by exploring the `wayang/skills` directory and `inference-aqli` directory to understand what needs to be replicated.
 
 I should:
 1. Look at the `wayang/skills` directory to understand its structure
-2. Look at the `inference-gollek` directory to see what's currently there
-3. Create a similar skills structure in `inference-gollek`
+2. Look at the `inference-aqli` directory to see what's currently there
+3. Create a similar skills structure in `inference-aqli`
 
 Let me start by exploring these directories.*
 
@@ -62,9 +62,9 @@ WORKFLOWS.md
 
 ### ✅ `view`
 
-**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek.**
+**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli
 
 <details>
 <summary>17 lines</summary>
@@ -503,7 +503,7 @@ $ find ~/Workspace/workkayys/Products/Wayang/wayang-platform/wayang/skills -type
 
 ### 💬 Copilot
 
-Now let me confirm what needs to be created in inference-gollek:
+Now let me confirm what needs to be created in inference-aqli:
 
 ---
 
@@ -511,9 +511,9 @@ Now let me confirm what needs to be created in inference-gollek:
 
 ### ✅ `bash`
 
-**Check if skills directory exists in inference-gollek**
+**Check if skills directory exists in inference-aqli**
 
-$ ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills 2>/dev/null || echo "skills directory does not exist"
+$ ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills 2>/dev/null || echo "skills directory does not exist"
 
 ```
 skills directory does not exist
@@ -535,7 +535,7 @@ Copilot CLI version 0.0.396 downloaded. Restart to update.
 
 ### 💬 Copilot
 
-Let me check the key markdown files from wayang/skills to understand what should be in inference-gollek/skills:
+Let me check the key markdown files from wayang/skills to understand what should be in inference-aqli/skills:
 
 ---
 
@@ -1045,7 +1045,7 @@ Let me check the key markdown files from wayang/skills to understand what should
 
 ### 💬 Copilot
 
-Now I understand the structure. Let me create the skills directory and documentation files in inference-gollek, customized for the inference module. I'll create these files:
+Now I understand the structure. Let me create the skills directory and documentation files in inference-aqli, customized for the inference module. I'll create these files:
 
 ---
 
@@ -1053,9 +1053,9 @@ Now I understand the structure. Let me create the skills directory and documenta
 
 ### ✅ `bash`
 
-**Create skills directory in inference-gollek**
+**Create skills directory in inference-aqli**
 
-$ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills
+$ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills
 
 ```
 
@@ -1069,7 +1069,7 @@ $ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-golle
 
 ### 💬 Copilot
 
-Now let me create the skill documentation files customized for inference-gollek:
+Now let me create the skill documentation files customized for inference-aqli:
 
 ---
 
@@ -1077,12 +1077,12 @@ Now let me create the skill documentation files customized for inference-gollek:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md with 4819 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md with 4819 characters
 ```
 
 
@@ -1092,7 +1092,7 @@ Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gol
 
 ### 💬 Copilot
 
-Now let me create the SKILLS.md file for inference-gollek:
+Now let me create the SKILLS.md file for inference-aqli:
 
 ---
 
@@ -1100,12 +1100,12 @@ Now let me create the SKILLS.md file for inference-gollek:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SKILLS.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SKILLS.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SKILLS.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SKILLS.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SKILLS.md with 6743 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SKILLS.md with 6743 characters
 ```
 
 
@@ -1123,12 +1123,12 @@ Now let me create the remaining documentation files:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/ARCHITECTURE.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/ARCHITECTURE.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/ARCHITECTURE.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/ARCHITECTURE.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/ARCHITECTURE.md with 7376 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/ARCHITECTURE.md with 7376 characters
 ```
 
 
@@ -1146,12 +1146,12 @@ Now let me create CONCEPTS.md:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/CONCEPTS.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/CONCEPTS.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/CONCEPTS.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/CONCEPTS.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/CONCEPTS.md with 6956 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/CONCEPTS.md with 6956 characters
 ```
 
 
@@ -1169,12 +1169,12 @@ Now let me create EXECUTORS.md:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/EXECUTORS.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/EXECUTORS.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/EXECUTORS.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/EXECUTORS.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/EXECUTORS.md with 8753 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/EXECUTORS.md with 8753 characters
 ```
 
 
@@ -1192,12 +1192,12 @@ Now let me create the remaining files - PLUGINS.md, PROTOCOLS.md, SECURITY.md, a
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PLUGINS.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PLUGINS.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PLUGINS.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PLUGINS.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PLUGINS.md with 9535 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PLUGINS.md with 9535 characters
 ```
 
 
@@ -1215,12 +1215,12 @@ Now let me create PROTOCOLS.md:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PROTOCOLS.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PROTOCOLS.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PROTOCOLS.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PROTOCOLS.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PROTOCOLS.md with 9542 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PROTOCOLS.md with 9542 characters
 ```
 
 
@@ -1238,12 +1238,12 @@ Now let me create SECURITY.md and WORKFLOWS.md:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SECURITY.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SECURITY.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SECURITY.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SECURITY.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SECURITY.md with 9953 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SECURITY.md with 9953 characters
 ```
 
 
@@ -1261,12 +1261,12 @@ Now let me create the final file - WORKFLOWS.md:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/WORKFLOWS.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/WORKFLOWS.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/WORKFLOWS.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/WORKFLOWS.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/WORKFLOWS.md with 10556 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/WORKFLOWS.md with 10556 characters
 ```
 
 
@@ -1286,7 +1286,7 @@ Perfect! Let me verify all the files have been created:
 
 **Verify all skills documentation files created**
 
-$ ls -lh ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/
+$ ls -lh ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/
 
 <details>
 <summary>11 lines</summary>
@@ -1324,21 +1324,21 @@ Perfect! All 9 documentation files have been successfully created. Let me create
 
 **Count total lines in all documentation files**
 
-$ wc -l ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/*.md
+$ wc -l ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/*.md
 
 <details>
 <summary>11 lines</summary>
 
 ```
-342 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/ARCHITECTURE.md
-     343 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/CONCEPTS.md
-     519 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/EXECUTORS.md
-     530 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PLUGINS.md
-     551 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/PROTOCOLS.md
-     251 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md
-     598 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SECURITY.md
-     322 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/SKILLS.md
-     628 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/WORKFLOWS.md
+342 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/ARCHITECTURE.md
+     343 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/CONCEPTS.md
+     519 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/EXECUTORS.md
+     530 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PLUGINS.md
+     551 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/PROTOCOLS.md
+     251 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md
+     598 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SECURITY.md
+     322 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/SKILLS.md
+     628 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/WORKFLOWS.md
     4084 total
 <exited with exit code 0>
 ```
@@ -1352,13 +1352,13 @@ $ wc -l ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/s
 
 ### 💬 Copilot
 
-✅ **Complete!** I've successfully created a `skills` directory in `inference-gollek` with comprehensive documentation similar to the `wayang/skills` structure.
+✅ **Complete!** I've successfully created a `skills` directory in `inference-aqli` with comprehensive documentation similar to the `wayang/skills` structure.
 
 ## Summary
 
-Created 9 documentation files (4,084 lines total) in `/inference-gollek/skills/`:
+Created 9 documentation files (4,084 lines total) in `/inference-aqli/skills/`:
 
-1. **README.md** - Overview of Inference-Gollek platform and capabilities
+1. **README.md** - Overview of Inference-Aqli platform and capabilities
 2. **SKILLS.md** - 18 core skills/capabilities (inference.execute, model.manage, etc.)
 3. **ARCHITECTURE.md** - System architecture, layers, and data flows
 4. **CONCEPTS.md** - Core concepts (workflows, tokens, models, executors, etc.)
@@ -1368,7 +1368,7 @@ Created 9 documentation files (4,084 lines total) in `/inference-gollek/skills/`
 8. **SECURITY.md** - Authentication, authorization, encryption, audit logging, compliance
 9. **WORKFLOWS.md** - Workflow definition, execution, error handling, and examples
 
-Each document is tailored to **Inference-Gollek's inference orchestration domain** while maintaining consistency with the Wayang platform structure.
+Each document is tailored to **Inference-Aqli's inference orchestration domain** while maintaining consistency with the Wayang platform structure.
 
 ---
 
@@ -1388,10 +1388,10 @@ it you mostly only copy from the example i show you. did you understand what i m
 
 1. First asked them what they meant by "skills" 
 2. Understood the actual purpose and structure
-3. Created inference-gollek specific content that makes sense for that module
+3. Created inference-aqli specific content that makes sense for that module
 
-Looking back, I see that wayang/skills contains documentation files about the Wayang platform's capabilities and architecture. The user asked me to "create skills of inference-gollek like this wayang/skills" - which could mean:
-- Copy the same documentation structure but adapt it for inference-gollek
+Looking back, I see that wayang/skills contains documentation files about the Wayang platform's capabilities and architecture. The user asked me to "create skills of inference-aqli like this wayang/skills" - which could mean:
+- Copy the same documentation structure but adapt it for inference-aqli
 - OR create some other kind of "skills" artifact
 
 But I think the real issue is that I didn't understand what "skills" actually represents. Looking at the SKILLS.md file I created, it seems like "skills" in this context refers to the platform's capabilities - like "inference.execute", "model.manage", etc.
@@ -1405,7 +1405,7 @@ I should admit I don't fully understand and ask clarifying questions about:
 - What they mean by "skills"
 - What problem these skills should solve
 - Whether they want documentation, code, configuration, or something else
-- How skills relate to the inference-gollek module specifically*
+- How skills relate to the inference-aqli module specifically*
 
 ---
 
@@ -1433,13 +1433,13 @@ Let me ask some clarifying questions:
    - Is this just documentation, or does it serve a functional purpose?
    - Are there corresponding code/implementation files somewhere?
 
-4. **For inference-gollek specifically** - what should "skills" represent?
+4. **For inference-aqli specifically** - what should "skills" represent?
    - The ML inference capabilities?
    - Different inference execution modes?
    - Plugin types for inference?
    - Something domain-specific to ML inference?
 
-I should have asked these questions first instead of just copying the pattern. What did you actually mean when you said "create skills of inference-gollek like this wayang/skills"?
+I should have asked these questions first instead of just copying the pattern. What did you actually mean when you said "create skills of inference-aqli like this wayang/skills"?
 
 ---
 
@@ -1613,14 +1613,14 @@ Ah! Now I understand. **Skills** are:
 - Used by AI agents/LLMs to understand how to perform specific tasks
 - Can be invoked explicitly or implicitly by the agent
 
-So for **inference-gollek**, skills should be:
+So for **inference-aqli**, skills should be:
 
 **Executable instruction packages** that define HOW to accomplish specific inference tasks, not just documentation about features.
 
 For example, instead of what I created, skills should look like:
 
 ```
-inference-gollek/skills/
+inference-aqli/skills/
 ├── run-inference/
 │   ├── SKILL.md          (instructions for running inference)
 │   ├── scripts/          (executable code/templates)
@@ -1649,7 +1649,7 @@ Is this correct? Should I recreate the skills directory with this structure inst
 
 ### 👤 User
 
-yes so you must understand what inside the inference-gollek. modify the exsiting
+yes so you must understand what inside the inference-aqli. modify the exsiting
 
 ---
 
@@ -1658,13 +1658,13 @@ yes so you must understand what inside the inference-gollek. modify the exsiting
 ### 💭 Reasoning
 
 *The user wants me to:
-1. Understand what's actually inside inference-gollek
+1. Understand what's actually inside inference-aqli
 2. Look at the actual codebase/structure
-3. Create meaningful skills based on what inference-gollek actually does
+3. Create meaningful skills based on what inference-aqli actually does
 
-I need to explore the inference-gollek directory to understand what it actually contains, what capabilities it has, what tasks it performs, then create skills that document how to use/accomplish those tasks.
+I need to explore the inference-aqli directory to understand what it actually contains, what capabilities it has, what tasks it performs, then create skills that document how to use/accomplish those tasks.
 
-Let me first explore the inference-gollek structure properly.*
+Let me first explore the inference-aqli structure properly.*
 
 ---
 
@@ -1672,44 +1672,44 @@ Let me first explore the inference-gollek structure properly.*
 
 ### ✅ `bash`
 
-**Explore inference-gollek structure and main files**
+**Explore inference-aqli structure and main files**
 
-$ find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek -type f -name "*.md" -o -name "*.java" -o -name "*.py" -o -name "pom.xml" -o -name "*.yml" | head -30
+$ find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli -type f -name "*.md" -o -name "*.java" -o -name "*.py" -o -name "pom.xml" -o -name "*.yml" | head -30
 
 <details>
 <summary>31 lines</summary>
 
 ```
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-local/pom.xml
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-local/src/main/java/tech/kayys/gollek/model/repo/local/LocalModelRepository.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-local/src/main/java/tech/kayys/gollek/model/repo/local/LocalModelRepositoryProvider.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/pom.xml
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/src/main/java/tech/kayys/gollek/model/repo/hf/HuggingFaceRepositoryProvider.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/src/main/java/tech/kayys/gollek/model/repo/hf/HuggingFaceClient.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/src/main/java/tech/kayys/gollek/model/repo/hf/HuggingFaceRepository.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/src/main/java/tech/kayys/gollek/model/repo/hf/HuggingFaceModelInfo.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/src/main/java/tech/kayys/gollek/model/repo/hf/HuggingFaceArtifactResolver.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/repository/gollek-model-repo-hf/src/main/java/tech/kayys/gollek/model/repo/hf/HuggingFaceConfig.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/model-repo.md
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/pom.xml
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/test/java/tech/kayys/gollek/model/core/CachedModelRepositoryTest.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/test/java/tech/kayys/gollek/model/core/ModelRunnerFactoryTest.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/test/java/tech/kayys/gollek/model/core/SelectionPolicyTest.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/repository/ModelRepository.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/repository/ModelRepositoryProvider.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/repository/ModelRepositoryRegistry.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/RunnerCandidate.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/RunnerMetrics.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/SelectionPolicy.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/DiskSpace.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/CachedModelRepository.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/ModelRunnerFactory.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/SupportedDevice.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/HardwareDetector.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/HardwareCapabilities.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/ResourceMetrics.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/ModelRef.java
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/gollek-model-repo-core/src/main/java/tech/kayys/gollek/model/core/ResourceRequirements.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-local/pom.xml
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-local/src/main/java/tech/kayys/aqli/model/repo/local/LocalModelRepository.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-local/src/main/java/tech/kayys/aqli/model/repo/local/LocalModelRepositoryProvider.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/pom.xml
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/src/main/java/tech/kayys/aqli/model/repo/hf/HuggingFaceRepositoryProvider.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/src/main/java/tech/kayys/aqli/model/repo/hf/HuggingFaceClient.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/src/main/java/tech/kayys/aqli/model/repo/hf/HuggingFaceRepository.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/src/main/java/tech/kayys/aqli/model/repo/hf/HuggingFaceModelInfo.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/src/main/java/tech/kayys/aqli/model/repo/hf/HuggingFaceArtifactResolver.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/repository/aqli-model-repo-hf/src/main/java/tech/kayys/aqli/model/repo/hf/HuggingFaceConfig.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/model-repo.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/pom.xml
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/test/java/tech/kayys/aqli/model/core/CachedModelRepositoryTest.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/test/java/tech/kayys/aqli/model/core/ModelRunnerFactoryTest.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/test/java/tech/kayys/aqli/model/core/SelectionPolicyTest.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/repository/ModelRepository.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/repository/ModelRepositoryProvider.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/repository/ModelRepositoryRegistry.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/RunnerCandidate.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/RunnerMetrics.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/SelectionPolicy.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/DiskSpace.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/CachedModelRepository.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/ModelRunnerFactory.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/SupportedDevice.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/HardwareDetector.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/HardwareCapabilities.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/ResourceMetrics.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/ModelRef.java
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/aqli-model-repo-core/src/main/java/tech/kayys/aqli/model/core/ResourceRequirements.java
 <exited with exit code 0>
 ```
 
@@ -1722,9 +1722,9 @@ $ find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek -t
 
 ### ✅ `view`
 
-**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek.**
+**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli
 
 <details>
 <summary>18 lines</summary>
@@ -1767,9 +1767,9 @@ Good! Now let me look at the README and key files:
 
 ### ✅ `view`
 
-**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/README.md.**
+**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/README.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/README.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/README.md
 
 <details>
 <summary>46 lines</summary>
@@ -1819,7 +1819,7 @@ Good! Now let me look at the README and key files:
 42. 7. **Error Handling Integration**
 43.    - Standardized `ErrorPayload` schema
 44.    - Audit events for all failures
-45.    - gollek error-as-input compatibility
+45.    - aqli error-as-input compatibility
 46.    - Human-in-the-loop escalation support
 ```
 
@@ -1834,7 +1834,7 @@ Good! Now let me look at the README and key files:
 
 **Check core and runtime modules**
 
-$ ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/core/ && ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/runtime/
+$ ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/core/ && ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/runtime/
 
 
 
@@ -1853,9 +1853,9 @@ Now let me check the provider-spi.md and look at plugins:
 
 ### ✅ `view`
 
-**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/provider-spi.md.**
+**view the file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/provider-spi.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/provider-spi.md (lines 1-100)
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/provider-spi.md (lines 1-100)
 
 <details>
 <summary>100 lines</summary>
@@ -1867,7 +1867,7 @@ Now let me check the provider-spi.md and look at plugins:
 4. 
 5. 
 6. ================================================================================
-7. tech/kayys/gollek/provider/adapter/AbstractProvider.java
+7. tech/kayys/aqli/provider/adapter/AbstractProvider.java
 8. Size: 9.0 KB | Modified: 2026-01-19 14:05:34
 9. --------------------------------------------------------------------------------
 10. package tech.kayys.wayang.inference.providers.adapter;
@@ -1974,7 +1974,7 @@ Now let me check the provider-spi.md and look at plugins:
 
 **Check plugins directory**
 
-$ ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/plugins/ && find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/plugins -type d -maxdepth 1
+$ ls -la ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/plugins/ && find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/plugins -type d -maxdepth 1
 
 <details>
 <summary>13 lines</summary>
@@ -1984,14 +1984,14 @@ total 24
 drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 .
 drwxr-xr-x@ 20 bhangun  staff   640 Jan 28 22:07 ..
 -rw-r--r--@  1 bhangun  staff  6148 Jan 27 11:35 .DS_Store
-drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 gollek-plugin-content-safety
-drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 gollek-plugin-model-router
-drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 gollek-plugin-quota
+drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 aqli-plugin-content-safety
+drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 aqli-plugin-model-router
+drwxr-xr-x@  7 bhangun  staff   224 Jan 27 11:35 aqli-plugin-quota
 -rw-r--r--@  1 bhangun  staff   953 Jan 27 17:08 pom.xml
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/plugins
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/plugins/gollek-plugin-model-router
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/plugins/gollek-plugin-quota
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/plugins/gollek-plugin-content-safety
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/plugins
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/plugins/aqli-plugin-model-router
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/plugins/aqli-plugin-quota
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/plugins/aqli-plugin-content-safety
 <exited with exit code 0>
 ```
 
@@ -2014,7 +2014,7 @@ Perfect! Now I understand. Let me check what actual capabilities exist and recre
 
 **Remove old skills directory and create fresh one**
 
-$ rm -rf ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills && mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills
+$ rm -rf ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills && mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills
 
 ```
 
@@ -2028,7 +2028,7 @@ $ rm -rf ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/
 
 ### 💬 Copilot
 
-Now let me create actual executable skills based on what inference-gollek does:
+Now let me create actual executable skills based on what inference-aqli does:
 
 ---
 
@@ -2036,9 +2036,9 @@ Now let me create actual executable skills based on what inference-gollek does:
 
 ### ❌ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/SKILL.md
 
 ```
 Parent directory does not exist
@@ -2053,7 +2053,7 @@ Parent directory does not exist
 
 **Create skill directories**
 
-$ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/scripts ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/references
+$ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/scripts ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/references
 
 ```
 
@@ -2067,12 +2067,12 @@ $ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-golle
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/SKILL.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/SKILL.md with 4633 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/SKILL.md with 4633 characters
 ```
 
 
@@ -2090,9 +2090,9 @@ Now create more skills based on actual capabilities:
 
 ### ❌ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository/SKILL.md
 
 ```
 Parent directory does not exist
@@ -2107,7 +2107,7 @@ Parent directory does not exist
 
 **Create skill directories**
 
-$ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/{load-model-from-repository,configure-plugin,handle-multi-tenancy,monitor-inference}/scripts
+$ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/{load-model-from-repository,configure-plugin,handle-multi-tenancy,monitor-inference}/scripts
 
 ```
 
@@ -2121,12 +2121,12 @@ $ mkdir -p ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-golle
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository/SKILL.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository/SKILL.md with 4413 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository/SKILL.md with 4413 characters
 ```
 
 
@@ -2136,12 +2136,12 @@ Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gol
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/configure-plugin/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/configure-plugin/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/configure-plugin/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/configure-plugin/SKILL.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/configure-plugin/SKILL.md with 6224 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/configure-plugin/SKILL.md with 6224 characters
 ```
 
 
@@ -2151,12 +2151,12 @@ Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gol
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/handle-multi-tenancy/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/handle-multi-tenancy/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/handle-multi-tenancy/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/handle-multi-tenancy/SKILL.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/handle-multi-tenancy/SKILL.md with 8021 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/handle-multi-tenancy/SKILL.md with 8021 characters
 ```
 
 
@@ -2166,12 +2166,12 @@ Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gol
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/monitor-inference/SKILL.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/monitor-inference/SKILL.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/monitor-inference/SKILL.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/monitor-inference/SKILL.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/monitor-inference/SKILL.md with 9260 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/monitor-inference/SKILL.md with 9260 characters
 ```
 
 
@@ -2191,24 +2191,24 @@ Perfect! Let me verify all the skills have been created:
 
 **Verify all skills created**
 
-$ find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills -name "SKILL.md" -type f | xargs ls -lh && echo "---" && find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills -maxdepth 1 -type d
+$ find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills -name "SKILL.md" -type f | xargs ls -lh && echo "---" && find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills -maxdepth 1 -type d
 
 <details>
 <summary>13 lines</summary>
 
 ```
--rw-r--r--@ 1 bhangun  staff   6.1K Jan 28 22:23 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/configure-plugin/SKILL.md
--rw-r--r--@ 1 bhangun  staff   8.1K Jan 28 22:24 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/handle-multi-tenancy/SKILL.md
--rw-r--r--@ 1 bhangun  staff   4.3K Jan 28 22:23 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository/SKILL.md
--rw-r--r--@ 1 bhangun  staff   9.3K Jan 28 22:24 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/monitor-inference/SKILL.md
--rw-r--r--@ 1 bhangun  staff   4.5K Jan 28 22:23 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference/SKILL.md
+-rw-r--r--@ 1 bhangun  staff   6.1K Jan 28 22:23 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/configure-plugin/SKILL.md
+-rw-r--r--@ 1 bhangun  staff   8.1K Jan 28 22:24 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/handle-multi-tenancy/SKILL.md
+-rw-r--r--@ 1 bhangun  staff   4.3K Jan 28 22:23 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository/SKILL.md
+-rw-r--r--@ 1 bhangun  staff   9.3K Jan 28 22:24 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/monitor-inference/SKILL.md
+-rw-r--r--@ 1 bhangun  staff   4.5K Jan 28 22:23 ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference/SKILL.md
 ---
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/configure-plugin
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/handle-multi-tenancy
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/monitor-inference
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/run-inference
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/load-model-from-repository
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/configure-plugin
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/handle-multi-tenancy
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/monitor-inference
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/run-inference
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/load-model-from-repository
 <exited with exit code 0>
 ```
 
@@ -2229,12 +2229,12 @@ Excellent! Now let me create an index file to tie them all together:
 
 ### ✅ `create`
 
-**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md.**
+**create a new file at ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md.**
 
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md
 
 ```
-Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills/README.md with 6823 characters
+Created file ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills/README.md with 6823 characters
 ```
 
 
@@ -2254,13 +2254,13 @@ Perfect! Let me verify the complete structure:
 
 **Show skills directory structure**
 
-$ tree ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills -L 2 2>/dev/null || find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills -type f -o -type d | sort
+$ tree ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills -L 2 2>/dev/null || find ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills -type f -o -type d | sort
 
 <details>
 <summary>20 lines</summary>
 
 ```
-~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/skills
+~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-aqli/skills
 ├── README.md
 ├── configure-plugin
 │   ├── SKILL.md
@@ -2292,11 +2292,11 @@ $ tree ~/Workspace/workkayys/Products/Wayang/wayang-platform/inference-gollek/sk
 
 ### 💬 Copilot
 
-Perfect! ✅ **Done!** I've created proper **executable skills** for inference-gollek based on its actual capabilities:
+Perfect! ✅ **Done!** I've created proper **executable skills** for inference-aqli based on its actual capabilities:
 
 ## Summary
 
-Created 5 actionable skills in `/inference-gollek/skills/`:
+Created 5 actionable skills in `/inference-aqli/skills/`:
 
 1. **run-inference** - Execute ML models with multi-format support (GGUF, ONNX, Triton, Cloud APIs)
 2. **load-model-from-repository** - Load models from HuggingFace, local, or cloud storage with caching
@@ -2311,7 +2311,7 @@ Each skill:
 - Covers prerequisites, options, error handling
 - Links to related skills
 
-The skills are **based on what inference-gollek actually does** - not generic documentation. An AI agent can now read these and execute real tasks with the inference-gollek platform.
+The skills are **based on what inference-aqli actually does** - not generic documentation. An AI agent can now read these and execute real tasks with the inference-aqli platform.
 
 ---
 
@@ -2327,7 +2327,7 @@ can you do the same for workflow-gamelan
 
 ### 💭 Reasoning
 
-*The user wants me to create skills for workflow-gamelan similar to what I just did for inference-gollek. I need to:
+*The user wants me to create skills for workflow-gamelan similar to what I just did for inference-aqli. I need to:
 
 1. First, explore the workflow-gamelan codebase to understand what it actually does
 2. Identify the real capabilities and features

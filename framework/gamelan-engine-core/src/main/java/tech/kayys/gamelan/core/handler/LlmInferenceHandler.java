@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Node type handler for LLM inference steps in Gamelan workflows.
  * <p>
- * This handler delegates to a provider-neutral inference client so Gollek,
+ * This handler delegates to a provider-neutral inference client so Aqli,
  * remote gateways, or test engines can back LLM workflow nodes.
  * <p>
  * <b>Configuration:</b>

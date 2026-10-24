@@ -24,7 +24,7 @@ public enum NodeType {
     // ── LLM-Native Types ───────────────────────────────────────────────
 
     /**
-     * LLM inference step - calls gollek inference engine.
+     * LLM inference step - calls aqli inference engine.
      * Configuration:
      * - model: model ID or path
      * - prompt: prompt template

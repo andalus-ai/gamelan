@@ -18,7 +18,7 @@ val publishEnabled = providers.gradleProperty("gamelan.publish.enabled")
 val localRepositoryEnabled = providers.gradleProperty("gamelan.repositories.local.enabled")
     .map(String::toBoolean)
     .orElse(false)
-val gollekRepositoryEnabled = providers.gradleProperty("gamelan.repositories.gollek.enabled")
+val aqliRepositoryEnabled = providers.gradleProperty("gamelan.repositories.aqli.enabled")
     .map(String::toBoolean)
     .orElse(true)
 val snapshotRepositoryEnabled = providers.gradleProperty("gamelan.repositories.snapshots.enabled")
@@ -37,12 +37,12 @@ repositories {
 
     mavenCentral()
 
-    if (gollekRepositoryEnabled.get()) {
+    if (aqliRepositoryEnabled.get()) {
         maven {
-            name = "gollekGitHub"
+            name = "aqliGitHub"
             url = uri(
-                providers.gradleProperty("gamelan.repositories.gollek.url")
-                    .orElse("https://maven.pkg.github.com/bhangun/gollek")
+                providers.gradleProperty("gamelan.repositories.aqli.url")
+                    .orElse("https://maven.pkg.github.com/bhangun/aqli")
                     .get()
             )
         }

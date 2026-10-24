@@ -4,7 +4,7 @@ import io.smallrye.mutiny.Uni;
 
 /**
  * Provider-neutral LLM inference contract for AI node handlers.
- * Implementations can bridge to Gollek, remote model gateways, or mock engines.
+ * Implementations can bridge to Aqli, remote model gateways, or mock engines.
  */
 public interface LlmInferenceClient {
 
