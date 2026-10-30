@@ -12,7 +12,7 @@ dependencies {
     api(project(":gamelan-engine-spi"))
     api(libs.io.smallrye.reactive.mutiny.x1)
     api(libs.org.slf4j.slf4j.api.x1)
-    api(libs.jakarta.enterprise.jakarta.enterprise.cdi.api)
+    api(libs.jakarta.enterprise.jakarta.enterprise.cdi.api.x1)
     api(libs.org.eclipse.microprofile.jwt.microprofile.jwt.auth.api) {
         // TODO: This exclude was sourced from a POM exclusion and is NOT exactly equivalent, see: https://docs.gradle.org/9.4.0/userguide/build_init_plugin.html#sec:pom_maven_conversion
         exclude(mapOf("group" to "org.osgi", "module" to "org.osgi.annotation.versioning"))
