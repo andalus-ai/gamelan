@@ -57,24 +57,19 @@ jobs:
       run: mvn -B test
 
     - name: Run CLI module tests specifically
-      run: mvn -B test -pl gamelan-cli
+      run: mvn -B -f ui/gamelan-cli/pom.xml test
 
     - name: Verify CLI module builds
       run: |
-        cd gamelan-cli
-        mvn -B compile
-        mvn -B test
-        cd ..
+        mvn -B -f ui/gamelan-cli/pom.xml compile
+        mvn -B -f ui/gamelan-cli/pom.xml test
 
     - name: Package CLI module
-      run: |
-        cd gamelan-cli
-        mvn -B package -DskipTests
-        cd ..
+      run: mvn -B -f ui/gamelan-cli/pom.xml package -DskipTests
 
     - name: Upload CLI artifact
       uses: actions/upload-artifact@v4
       with:
         name: gamelan-cli-jar
-        path: gamelan-cli/target/gamelan-cli-*.jar
+        path: ui/gamelan-cli/target/gamelan-cli-*.jar
         if-no-files-found: warn
