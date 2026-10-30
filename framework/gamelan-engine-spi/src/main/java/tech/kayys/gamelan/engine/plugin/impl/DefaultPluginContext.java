@@ -150,7 +150,7 @@ public class DefaultPluginContext implements PluginContext {
 
         @Override
         public Configuration scoped(String scope) {
-            String normalizedScope = scope == null ? "" : scope.trim().replaceAll("^\\\\.+|\\\\.+$", "");
+            String normalizedScope = scope == null ? "" : scope.trim().replaceAll("^\\.+|\\.+$", "");
             String scopedPrefix = normalizedScope.isEmpty()
                     ? prefix
                     : prefix.isEmpty() ? normalizedScope : prefix + "." + normalizedScope;
