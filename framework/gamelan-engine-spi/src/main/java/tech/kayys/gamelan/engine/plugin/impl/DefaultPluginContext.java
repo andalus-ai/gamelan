@@ -54,30 +54,7 @@ public class DefaultPluginContext implements PluginContext {
         this.eventPublisher = eventPublisher;
         this.extensionRegistry = extensionRegistry;
         this.dataDirectory = dataDirectory;
-        // Create configuration from properties
-        // We need a simple configuration implementation wrapping the map
-        this.configuration = new Configuration() {
-            @Override
-            public Optional<String> get(String key) {
-                return Optional.ofNullable(properties.get(key));
-            }
-
-            @Override
-            public <T> Optional<T> get(String key, Class<T> type) {
-                // Simple string conversion for now
-                return get(key).map(v -> (T) v); // This is unsafe but compilation wise ok if type is String
-            }
-
-            @Override
-            public String require(String key) {
-                return get(key).orElseThrow();
-            }
-
-            @Override
-            public Configuration scoped(String prefix) {
-                return this;
-            } // Simplified
-        };
+        this.configuration = new MapBackedConfiguration(this.properties, "");
     }
 
     @Override
@@ -144,6 +121,79 @@ public class DefaultPluginContext implements PluginContext {
     @Override
     public ExtensionRegistry extensions() {
         return extensionRegistry;
+    }
+ 
+    private static final class MapBackedConfiguration implements Configuration {
+        private final Map<String, String> properties;
+        private final String prefix;
+
+        private MapBackedConfiguration(Map<String, String> properties, String prefix) {
+            this.properties = properties;
+            this.prefix = prefix;
+        }
+
+        @Override
+        public Optional<String> get(String key) {
+            return Optional.ofNullable(properties.get(qualify(key)));
+        }
+
+        @Override
+        public <T> Optional<T> get(String key, Class<T> type) {
+            return get(key).map(value -> convert(value, type));
+        }
+
+        @Override
+        public String require(String key) {
+            return get(key).orElseThrow(
+                    () -> new IllegalStateException("Missing required configuration: " + qualify(key)));
+        }
+
+        @Override
+        public Configuration scoped(String scope) {
+            String normalizedScope = scope == null ? "" : scope.trim().replaceAll("^\\\\.+|\\\\.+$", "");
+            String scopedPrefix = normalizedScope.isEmpty()
+                    ? prefix
+                    : prefix.isEmpty() ? normalizedScope : prefix + "." + normalizedScope;
+            return new MapBackedConfiguration(properties, scopedPrefix);
+        }
+
+        private String qualify(String key) {
+            return prefix.isEmpty() ? key : prefix + "." + key;
+        }
+
+        private static <T> T convert(String value, Class<T> type) {
+            if (type == String.class) {
+                return type.cast(value);
+            }
+            Object converted;
+            if (type == Integer.class || type == int.class) {
+                converted = Integer.valueOf(value);
+            } else if (type == Long.class || type == long.class) {
+                converted = Long.valueOf(value);
+            } else if (type == Double.class || type == double.class) {
+                converted = Double.valueOf(value);
+            } else if (type == Float.class || type == float.class) {
+                converted = Float.valueOf(value);
+            } else if (type == Short.class || type == short.class) {
+                converted = Short.valueOf(value);
+            } else if (type == Byte.class || type == byte.class) {
+                converted = Byte.valueOf(value);
+            } else if (type == Boolean.class || type == boolean.class) {
+                if (!"true".equalsIgnoreCase(value) && !"false".equalsIgnoreCase(value)) {
+                    throw new IllegalArgumentException("Not a boolean value: " + value);
+                }
+                converted = Boolean.valueOf(value);
+            } else if (type.isEnum()) {
+                @SuppressWarnings({ "rawtypes", "unchecked" })
+                Object enumValue = Enum.valueOf((Class<? extends Enum>) type.asSubclass(Enum.class), value);
+                converted = enumValue;
+            } else {
+                throw new IllegalArgumentException("Unsupported configuration type: " + type.getName());
+            }
+            @SuppressWarnings("unchecked")
+            T result = (T) converted;
+            return result;
+        }
     }
 
     private static String mapDeploymentMode(String deploymentMode) {
