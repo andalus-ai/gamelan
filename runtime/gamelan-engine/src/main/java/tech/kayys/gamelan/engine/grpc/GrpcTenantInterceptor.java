@@ -12,7 +12,7 @@ import io.grpc.ServerInterceptor;
 import io.quarkus.grpc.GlobalInterceptor;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import tech.kayys.gamelan.core.config.GamelanConfig;
+import tech.kayys.gamelan.security.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.engine.tenant.TenantId;
 
