@@ -3,7 +3,6 @@ package tech.kayys.gamelan.security;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import tech.kayys.gamelan.core.config.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.engine.tenant.TenantId;
 
