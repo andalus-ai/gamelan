@@ -23,7 +23,11 @@ catalogs can be passed with `-Pgamelan.module.files=...`.
 Java module conventions live in `buildlogic.java-conventions`. Project group,
 version, Java release, repository selection, and publication behavior are
 configured through `gradle.properties`; artifact publication is opt-in via
-`gamelan.publish.enabled=true`.
+`gamelan.publish.enabled=true`. The publication repository defaults to the
+Andalus transition repository (`https://maven.pkg.github.com/andalus-ai/gamelan`)
+and can be overridden with `gamelan.publish.url`. Credentials are read from
+`GITHUB_ACTOR` / `GITHUB_TOKEN`, or from the Gradle properties
+`gamelan.publish.username` / `gamelan.publish.token`.
 
 Dependency capability choices that affect profile builds are also centralized in
 `gradle.properties`, including the Quarkus/Kafka `lz4-java` provider selection.
@@ -43,6 +47,7 @@ Dependency capability choices that affect profile builds are also centralized in
 | `plugins` | Built-in plugin modules |
 | `extensions` | Optional extension modules, currently `gamelan-dag` |
 | `examples` | Example clients, executors, and plugin demos |
+| `publish` | Reusable framework, runtime, protocol, plugin, and SDK modules; excludes examples and test/demo projects |
 | `all` | Every Gradle subproject with a build file |
 
 The built-in source of truth is `gradle/gamelan-profiles.properties`; run
@@ -612,6 +617,27 @@ rollback work. Command methods also enforce the terminal boundary directly:
 completed compensation cannot be failed later, failed compensation cannot be
 completed later, and late per-node progress is rejected unless it is an
 idempotent acknowledgement for an already-compensated node.
+
+## Artifact Publication
+
+The `publish` profile is the release surface for reusable Gamelan artifacts.
+It intentionally excludes examples and test/demo projects. Publication is
+opt-in and targets the transition repository's GitHub Packages Maven registry
+by default:
+
+```bash
+GITHUB_ACTOR=<github-user> GITHUB_TOKEN=<github-token> \
+  gradle gamelanProfileRun \
+    -Pgamelan.profile=publish \
+    -Pgamelan.task=publish \
+    --no-daemon -x test --parallel \
+    -Pgamelan.publish.enabled=true \
+    -Pgamelan.version=1.0.0-SNAPSHOT
+```
+
+The repository currently has the Gradle wrapper scripts but not
+`gradle/wrapper/gradle-wrapper.jar`. CI therefore installs the pinned Gradle
+9.4.0 distribution and invokes `gradle` directly instead of `./gradlew`.
 
 ## Examples
 

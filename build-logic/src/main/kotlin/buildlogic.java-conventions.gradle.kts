@@ -15,6 +15,14 @@ val javaRelease = providers.gradleProperty("gamelan.java.release")
 val publishEnabled = providers.gradleProperty("gamelan.publish.enabled")
     .map(String::toBoolean)
     .orElse(false)
+val publishRepositoryUrl = providers.gradleProperty("gamelan.publish.url")
+    .orElse("https://maven.pkg.github.com/andalus-ai/gamelan")
+val publishUsername = providers.gradleProperty("gamelan.publish.username")
+    .orElse(providers.environmentVariable("GITHUB_ACTOR"))
+    .orElse("")
+val publishToken = providers.gradleProperty("gamelan.publish.token")
+    .orElse(providers.environmentVariable("GITHUB_TOKEN"))
+    .orElse("")
 val localRepositoryEnabled = providers.gradleProperty("gamelan.repositories.local.enabled")
     .map(String::toBoolean)
     .orElse(false)
@@ -95,6 +103,16 @@ if (publishEnabled.get()) {
     extensions.configure<PublishingExtension>("publishing") {
         publications.create<MavenPublication>("maven") {
             from(components["java"])
+        }
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri(publishRepositoryUrl.get())
+                credentials {
+                    username = publishUsername.get()
+                    password = publishToken.get()
+                }
+            }
         }
     }
 }

@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -13,12 +17,23 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up JDK 21
+    - name: Set up JDK 25
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
+        java-version: '25'
         distribution: 'temurin'
         cache: maven
+
+    - name: Set up Gradle 9.4.0
+      uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: '9.4.0'
+
+    - name: Validate Gradle profile catalog
+      run: gradle gamelanProfiles --no-daemon
+
+    - name: Compile publishable Gradle modules
+      run: gradle gamelanProfileRun -Pgamelan.profile=publish -Pgamelan.task=classes --no-daemon --parallel -Pgamelan.version=1.0.0-SNAPSHOT
 
     - name: Cache Maven dependencies
       uses: actions/cache@v4
@@ -42,24 +57,19 @@ jobs:
       run: mvn -B test
 
     - name: Run CLI module tests specifically
-      run: mvn -B test -pl gamelan-cli
+      run: mvn -B -f ui/gamelan-cli/pom.xml test
 
     - name: Verify CLI module builds
       run: |
-        cd gamelan-cli
-        mvn -B compile
-        mvn -B test
-        cd ..
+        mvn -B -f ui/gamelan-cli/pom.xml compile
+        mvn -B -f ui/gamelan-cli/pom.xml test
 
     - name: Package CLI module
-      run: |
-        cd gamelan-cli
-        mvn -B package -DskipTests
-        cd ..
+      run: mvn -B -f ui/gamelan-cli/pom.xml package -DskipTests
 
     - name: Upload CLI artifact
       uses: actions/upload-artifact@v4
       with:
         name: gamelan-cli-jar
-        path: gamelan-cli/target/gamelan-cli-*.jar
+        path: ui/gamelan-cli/target/gamelan-cli-*.jar
         if-no-files-found: warn

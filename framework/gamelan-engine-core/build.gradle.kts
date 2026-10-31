@@ -11,6 +11,7 @@ plugins {
 dependencies {
     api(project(":gamelan-engine-spi"))
     api(project(":gamelan-plugin-spi"))
+    implementation("org.eclipse.microprofile.config:microprofile-config-api:3.1")
     api(libs.io.smallrye.reactive.mutiny)
     api(libs.org.slf4j.slf4j.api.x1)
     api(libs.io.quarkus.quarkus.arc)
