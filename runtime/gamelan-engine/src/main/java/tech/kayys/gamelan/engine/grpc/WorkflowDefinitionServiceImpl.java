@@ -7,7 +7,7 @@ import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.kayys.gamelan.core.config.GamelanConfig;
+import tech.kayys.gamelan.security.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.engine.error.ErrorCode;
 import tech.kayys.gamelan.engine.error.GamelanException;
