@@ -12,7 +12,7 @@ import jakarta.ws.rs.Priorities;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.ext.Provider;
-import tech.kayys.gamelan.engine.config.GamelanConfig;
+import tech.kayys.gamelan.core.config.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 
 /**
