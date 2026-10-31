@@ -45,7 +45,7 @@ public class WorkflowServiceImpl implements WorkflowService {
         tech.kayys.gamelan.engine.context.RequestContext requestContext;
 
         @Inject
-        tech.kayys.gamelan.engine.config.GamelanConfig config;
+        tech.kayys.gamelan.core.config.GamelanConfig config;
 
         private TenantId tenant() {
                 return requestContext.getTenantId().orElseGet(config::getDefaultTenant);
