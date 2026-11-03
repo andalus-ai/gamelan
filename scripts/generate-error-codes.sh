@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-API_SRC="$ROOT_DIR/core/gamelan-engine-spi/src/main/java"
+API_SRC="$ROOT_DIR/framework/gamelan-engine-spi/src/main/java"
 OUTPUT_FILE="$ROOT_DIR/docs/error-codes.md"
 BUILD_DIR="${TMPDIR:-/tmp}/gamelan-error-codes"
 
