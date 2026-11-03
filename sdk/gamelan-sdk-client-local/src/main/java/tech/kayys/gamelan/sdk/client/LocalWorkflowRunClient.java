@@ -98,7 +98,7 @@ public class LocalWorkflowRunClient implements WorkflowRunClient {
                 payload,
                 Instant.now(),
                 idempotencyKey);
-        return runManager().signal(WorkflowRunId.of(runId), signal);
+        return runManager().signal(WorkflowRunId.of(runId), tenantId, signal);
     }
 
     @Override

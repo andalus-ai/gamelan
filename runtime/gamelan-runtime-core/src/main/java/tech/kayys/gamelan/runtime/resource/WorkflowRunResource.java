@@ -124,6 +124,7 @@ public class WorkflowRunResource {
                 : null;
         return runManager.signal(
                 WorkflowRunId.of(id),
+                tenant(),
                 new Signal(name, targetNodeId, data, java.time.Instant.now(), idempotencyKey));
     }
 }
