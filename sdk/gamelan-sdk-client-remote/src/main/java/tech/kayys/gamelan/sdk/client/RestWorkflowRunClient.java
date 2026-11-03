@@ -221,7 +221,7 @@ public class RestWorkflowRunClient implements WorkflowRunClient {
         checkClosed();
         String path = String.format("/api/v1/workflow-runs?page=%d&size=%d", page, size);
         if (workflowId != null)
-            path += "&workflowId=" + workflowId;
+            path += "&definitionId=" + workflowId;
         if (status != null)
             path += "&status=" + status;
 
@@ -241,7 +241,7 @@ public class RestWorkflowRunClient implements WorkflowRunClient {
     @Override
     public Uni<Long> getActiveRunsCount() {
         checkClosed();
-        return createRequest(io.vertx.core.http.HttpMethod.GET, "/api/v1/workflow-runs/count")
+        return createRequest(io.vertx.core.http.HttpMethod.GET, "/api/v1/workflow-runs/active-count")
                 .send()
                 .onItem().transformToUni(response -> {
                     if (response.statusCode() >= 400) {
