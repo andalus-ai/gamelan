@@ -13,7 +13,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import tech.kayys.gamelan.engine.config.GamelanConfig;
+import tech.kayys.gamelan.security.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.engine.execution.ExecutionHistory;
 import tech.kayys.gamelan.engine.run.CreateRunRequest;
