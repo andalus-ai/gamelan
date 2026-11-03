@@ -13,7 +13,7 @@ import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import tech.kayys.gamelan.engine.config.GamelanConfig;
+import tech.kayys.gamelan.security.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.engine.signal.dto.ExternalSignalRequest;
 import tech.kayys.gamelan.engine.tenant.TenantId;
