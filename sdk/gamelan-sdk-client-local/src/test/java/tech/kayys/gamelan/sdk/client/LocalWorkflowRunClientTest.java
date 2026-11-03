@@ -91,14 +91,14 @@ class LocalWorkflowRunClientTest {
     }
 
     @Test
-    void signalPassesClientIdempotencyKeyAndTreatsBlankTargetAsBroadcast() {
-        when(runManager.signal(any(), any())).thenReturn(Uni.createFrom().voidItem());
+    void signalPassesTenantAndIdempotencyKeyAndTreatsBlankTargetAsBroadcast() {
+        when(runManager.signal(any(), any(), any())).thenReturn(Uni.createFrom().voidItem());
 
         client.signal("run-1", "approved", "  ", Map.of("approved", true), "signal-1")
                 .await().indefinitely();
 
         ArgumentCaptor<Signal> captor = ArgumentCaptor.forClass(Signal.class);
-        verify(runManager).signal(eq(WorkflowRunId.of("run-1")), captor.capture());
+        verify(runManager).signal(eq(WorkflowRunId.of("run-1")), eq(TENANT), captor.capture());
         assertEquals("signal-1", captor.getValue().idempotencyKey());
         assertNull(captor.getValue().targetNodeId());
     }

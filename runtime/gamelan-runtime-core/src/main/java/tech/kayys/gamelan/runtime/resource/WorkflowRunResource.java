@@ -17,6 +17,8 @@ import tech.kayys.gamelan.security.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.engine.execution.ExecutionHistory;
 import tech.kayys.gamelan.engine.run.CreateRunRequest;
+import tech.kayys.gamelan.engine.run.RunResponse;
+import tech.kayys.gamelan.engine.run.RunResponseMapper;
 import tech.kayys.gamelan.engine.run.RunStatus;
 import tech.kayys.gamelan.engine.run.dto.ResumeRunRequest;
 import tech.kayys.gamelan.engine.signal.Signal;
@@ -36,6 +38,9 @@ public class WorkflowRunResource {
     WorkflowRunManager runManager;
 
     @Inject
+    RunResponseMapper responseMapper;
+
+    @Inject
     RequestContext requestContext;
 
     @Inject
@@ -46,15 +51,15 @@ public class WorkflowRunResource {
     }
 
     @POST
-    public Uni<WorkflowRun> create(CreateRunRequest request) {
+    public Uni<RunResponse> create(CreateRunRequest request) {
         request.setTenantId(tenant());
-        return runManager.createRun(request);
+        return runManager.createRun(request).map(responseMapper::toResponse);
     }
 
     @GET
     @Path("/{id}")
-    public Uni<WorkflowRun> get(@PathParam("id") String id) {
-        return runManager.getRun(WorkflowRunId.of(id), tenant());
+    public Uni<RunResponse> get(@PathParam("id") String id) {
+        return runManager.getRun(WorkflowRunId.of(id), tenant()).map(responseMapper::toResponse);
     }
 
     @GET
@@ -71,21 +76,27 @@ public class WorkflowRunResource {
 
     @POST
     @Path("/{id}/start")
-    public Uni<WorkflowRun> start(@PathParam("id") String id) {
-        return runManager.startRun(WorkflowRunId.of(id), tenant());
+    public Uni<RunResponse> start(@PathParam("id") String id) {
+        return runManager.startRun(WorkflowRunId.of(id), tenant()).map(responseMapper::toResponse);
     }
 
     @POST
     @Path("/{id}/suspend")
-    public Uni<WorkflowRun> suspend(@PathParam("id") String id, Map<String, Object> params) {
+    public Uni<RunResponse> suspend(@PathParam("id") String id, Map<String, Object> params) {
         String reason = (String) params.getOrDefault("reason", "Manual suspension");
-        return runManager.suspendRun(WorkflowRunId.of(id), tenant(), reason, null);
+        String waitingOnNodeId = (String) params.get("waitingOnNodeId");
+        tech.kayys.gamelan.engine.node.NodeId waitingNode = waitingOnNodeId != null && !waitingOnNodeId.isBlank()
+                ? tech.kayys.gamelan.engine.node.NodeId.of(waitingOnNodeId.trim())
+                : null;
+        return runManager.suspendRun(WorkflowRunId.of(id), tenant(), reason, waitingNode)
+                .map(responseMapper::toResponse);
     }
 
     @POST
     @Path("/{id}/resume")
-    public Uni<WorkflowRun> resume(@PathParam("id") String id, ResumeRunRequest request) {
-        return runManager.resumeRun(WorkflowRunId.of(id), tenant(), request.resumeData(), request.humanTaskId());
+    public Uni<RunResponse> resume(@PathParam("id") String id, ResumeRunRequest request) {
+        return runManager.resumeRun(WorkflowRunId.of(id), tenant(), request.resumeData(), request.humanTaskId())
+                .map(responseMapper::toResponse);
     }
 
     @POST
@@ -96,13 +107,14 @@ public class WorkflowRunResource {
     }
 
     @GET
-    public Uni<List<WorkflowRun>> query(
+    public Uni<List<RunResponse>> query(
             @QueryParam("definitionId") String definitionId,
             @QueryParam("status") RunStatus status,
             @QueryParam("page") @jakarta.ws.rs.DefaultValue("0") int page,
             @QueryParam("size") @jakarta.ws.rs.DefaultValue("10") int size) {
         WorkflowDefinitionId wfDefId = definitionId != null ? new WorkflowDefinitionId(definitionId) : null;
-        return runManager.queryRuns(tenant(), wfDefId, status, page, size);
+        return runManager.queryRuns(tenant(), wfDefId, status, page, size)
+                .map(runs -> runs.stream().map(responseMapper::toResponse).toList());
     }
 
     @GET
@@ -124,6 +136,7 @@ public class WorkflowRunResource {
                 : null;
         return runManager.signal(
                 WorkflowRunId.of(id),
+                tenant(),
                 new Signal(name, targetNodeId, data, java.time.Instant.now(), idempotencyKey));
     }
 }
