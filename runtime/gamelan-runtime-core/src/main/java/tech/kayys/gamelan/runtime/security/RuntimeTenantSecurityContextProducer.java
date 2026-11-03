@@ -4,7 +4,7 @@ import io.quarkus.arc.DefaultBean;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
-import tech.kayys.gamelan.engine.config.GamelanConfig;
+import tech.kayys.gamelan.security.GamelanConfig;
 import tech.kayys.gamelan.engine.context.RequestContext;
 import tech.kayys.gamelan.security.DefaultTenantSecurityContext;
 import tech.kayys.gamelan.security.TenantSecurityContext;
