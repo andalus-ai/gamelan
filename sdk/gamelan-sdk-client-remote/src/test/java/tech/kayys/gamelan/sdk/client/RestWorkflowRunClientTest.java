@@ -69,4 +69,42 @@ class RestWorkflowRunClientTest {
                 .withRequestBody(matchingJsonPath("$.idempotencyKey", equalTo("signal-1")))
                 .withRequestBody(containing("\"approval.result\":\"yes\"")));
     }
+    @Test
+    void queryRunsUsesRuntimeDefinitionIdParameter() {
+        stubFor(com.github.tomakehurst.wiremock.client.WireMock.get(
+                com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo("/api/v1/workflow-runs"))
+                .withQueryParam("page", equalTo("2"))
+                .withQueryParam("size", equalTo("7"))
+                .withQueryParam("definitionId", equalTo("workflow-1"))
+                .withQueryParam("status", equalTo("RUNNING"))
+                .willReturn(aResponse().withStatus(200).withHeader("Content-Type", "application/json").withBody("[]")));
+
+        client.queryRuns("workflow-1", "RUNNING", 2, 7)
+                .subscribe().withSubscriber(UniAssertSubscriber.create())
+                .awaitItem()
+                .assertItem(java.util.List.of())
+                .assertCompleted();
+
+        verify(com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor(
+                com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo("/api/v1/workflow-runs"))
+                .withQueryParam("definitionId", equalTo("workflow-1"))
+                .withQueryParam("status", equalTo("RUNNING")));
+    }
+
+    @Test
+    void activeRunCountUsesRuntimeActiveCountEndpoint() {
+        stubFor(com.github.tomakehurst.wiremock.client.WireMock.get(
+                urlEqualTo("/api/v1/workflow-runs/active-count"))
+                .willReturn(aResponse().withStatus(200).withBody("3")));
+
+        client.getActiveRunsCount()
+                .subscribe().withSubscriber(UniAssertSubscriber.create())
+                .awaitItem()
+                .assertItem(3L)
+                .assertCompleted();
+
+        verify(com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor(
+                urlEqualTo("/api/v1/workflow-runs/active-count")));
+    }
+
 }
