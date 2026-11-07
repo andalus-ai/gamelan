@@ -46,6 +46,12 @@ Generated from `ErrorCode` at build time.
 | SCHEDULER_001 | 503 | true | No executor available |
 | SCHEDULER_002 | 429 | true | Concurrency limit exceeded |
 
+## SEARCH
+
+| Code | HTTP | Retryable | Message |
+| --- | --- | --- | --- |
+| SEARCH_001 | 503 | true | Search provider unavailable |
+
 ## STORAGE
 
 | Code | HTTP | Retryable | Message |
