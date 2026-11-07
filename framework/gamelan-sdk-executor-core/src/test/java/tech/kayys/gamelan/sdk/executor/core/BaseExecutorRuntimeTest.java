@@ -64,6 +64,33 @@ class BaseExecutorRuntimeTest {
         assertSame(readyExecutor, selected);
     }
 
+    @Test
+    void executorTypesListParsesAndBlankMeansAll() {
+        assertEquals(null, BaseExecutorRuntime.parseExecutorTypes(null));
+        assertEquals(null, BaseExecutorRuntime.parseExecutorTypes("  "));
+        assertEquals(null, BaseExecutorRuntime.parseExecutorTypes(" , ,"));
+        assertEquals(java.util.Set.of("a", "b-c"), BaseExecutorRuntime.parseExecutorTypes(" a , b-c ,,"));
+    }
+
+    @Test
+    void discoveryServesOnlyTheConfiguredExecutorTypes() {
+        TestExecutor service = new TestExecutor("wayang-service", true);
+        TestExecutor agent = new TestExecutor("wayang-agent", true);
+
+        RecordingRuntime all = new RecordingRuntime(java.util.List.of(service, agent), null);
+        all.initialize();
+        assertEquals(java.util.Set.of("wayang-service", "wayang-agent"), all.getExecutors().keySet(), "not configured: everything, as before");
+
+        RecordingRuntime onlyService = new RecordingRuntime(java.util.List.of(service, agent), java.util.Set.of("wayang-service", "nope"));
+        onlyService.initialize();
+        assertEquals(java.util.Set.of("wayang-service"), onlyService.getExecutors().keySet());
+
+        RecordingRuntime manual = new RecordingRuntime(java.util.List.of(service), java.util.Set.of("wayang-agent"));
+        manual.registerExecutor(new TestExecutor("hand-made", true));
+        manual.initialize();
+        assertEquals(java.util.Set.of("hand-made"), manual.getExecutors().keySet(), "registered by hand is never filtered; discovery honours the list");
+    }
+
     private static NodeExecutionTask task(Map<String, Object> context) {
         WorkflowRunId runId = WorkflowRunId.of("run-1");
         NodeId nodeId = NodeId.of("node-1");
@@ -79,8 +106,34 @@ class BaseExecutorRuntimeTest {
     private static final class RecordingRuntime extends BaseExecutorRuntime {
         private final RecordingTransport recordingTransport = new RecordingTransport();
 
+        private final java.util.Set<String> serve;
+
         private RecordingRuntime() {
+            this(java.util.List.of(), null);
+        }
+
+        /** @param found what CDI would offer; @param serve the configured executor types, or null for all */
+        @SuppressWarnings("unchecked")
+        private RecordingRuntime(java.util.List<WorkflowExecutor> found, java.util.Set<String> serve) {
             this.transport = recordingTransport;
+            this.serve = serve;
+            // Instance has many abstract methods; only iteration is used by discovery
+            this.discoveredExecutors = (jakarta.enterprise.inject.Instance<WorkflowExecutor>) java.lang.reflect.Proxy.newProxyInstance(
+                    getClass().getClassLoader(), new Class<?>[] { jakarta.enterprise.inject.Instance.class }, (proxy, method, args) -> {
+                        if (method.getName().equals("iterator")) {
+                            return found.iterator();
+                        }
+                        if (method.getName().equals("forEach")) {
+                            found.forEach((java.util.function.Consumer<WorkflowExecutor>) args[0]);
+                            return null;
+                        }
+                        throw new UnsupportedOperationException(method.getName());
+                    });
+        }
+
+        @Override
+        protected java.util.Set<String> allowedExecutorTypes() {
+            return serve;
         }
 
         @Override

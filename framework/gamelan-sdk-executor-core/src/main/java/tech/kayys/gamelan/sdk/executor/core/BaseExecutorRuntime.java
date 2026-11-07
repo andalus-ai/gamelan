@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -66,14 +67,55 @@ public abstract class BaseExecutorRuntime {
         LOG.info("Initializing {} with {} executors", getClass().getSimpleName(), executors.size());
         running = true;
 
-        // Auto-discover and register executors
+        // Auto-discover and register executors (all of them, or only the types this worker is configured to serve)
+        Set<String> serve = allowedExecutorTypes();
         if (discoveredExecutors != null) {
             discoveredExecutors.forEach(executor -> {
                 String type = executor.getExecutorType();
+                if (serve != null && !serve.contains(type)) {
+                    LOG.info("Skipping executor {}: not in {}", type, EXECUTOR_TYPES_PROPERTY);
+                    return;
+                }
                 executors.put(type, executor);
                 LOG.info("Auto-discovered executor: {}", type);
             });
         }
+        if (serve != null) {
+            serve.stream().filter(t -> !executors.containsKey(t))
+                    .forEach(t -> LOG.warn("{} lists '{}' but no such executor was found", EXECUTOR_TYPES_PROPERTY, t));
+        }
+    }
+
+    /** Names the executor types a worker serves (comma separated); see {@link #allowedExecutorTypes()}. */
+    public static final String EXECUTOR_TYPES_PROPERTY = "gamelan.executor.types";
+
+    /**
+     * The executor types this worker serves, so one image can run as several pools (for example a pool for connector calls next to a pool
+     * for model-backed steps). Read from the system property {@value #EXECUTOR_TYPES_PROPERTY}, else the environment variable
+     * {@code GAMELAN_EXECUTOR_TYPES}: a comma separated list of {@code executorType} values. Not set (or blank): every discovered executor is
+     * served, as before. Executors registered by hand with {@link #registerExecutor} are not filtered.
+     *
+     * @return the allowed types, or {@code null} for "all"
+     */
+    protected Set<String> allowedExecutorTypes() {
+        String v = System.getProperty(EXECUTOR_TYPES_PROPERTY);
+        if (v == null) {
+            v = System.getenv("GAMELAN_EXECUTOR_TYPES");
+        }
+        return parseExecutorTypes(v);
+    }
+
+    static Set<String> parseExecutorTypes(String value) {
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        Set<String> out = new java.util.LinkedHashSet<>();
+        for (String t : value.split(",")) {
+            if (!t.isBlank()) {
+                out.add(t.strip());
+            }
+        }
+        return out.isEmpty() ? null : Set.copyOf(out);
     }
 
     /**
