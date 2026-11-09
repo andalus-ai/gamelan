@@ -115,7 +115,9 @@ public class DefaultWorkflowRunManager implements tech.kayys.gamelan.engine.work
                                 "TenantId must be set on CreateRunRequest before calling createRun");
                 return definitionRegistry.getDefinition(new WorkflowDefinitionId(request.getWorkflowId()), tenantId)
                                 .flatMap(definition -> {
-                                        WorkflowRun run = WorkflowRun.create(tenantId, definition, request.getInputs());
+                                        WorkflowRun run = WorkflowRun.create(tenantId, definition,
+                                                        tech.kayys.gamelan.engine.run.RunMetadata.attach(request.getInputs(), request.getLabels(),
+                                                                        request.getCorrelationId()));
                                         return runRepository.persist(run)
                                                         .flatMap(persistedRun -> {
                                                                 List<ExecutionEvent> events = List.copyOf(

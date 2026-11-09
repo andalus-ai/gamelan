@@ -65,6 +65,7 @@ public class WorkflowServiceImpl implements WorkflowService {
                                 mapper.structToMap(request.getInputs()),
                                 request.getCorrelationId(),
                                 request.getAutoStart());
+                domainRequest.setLabels(request.getLabelsMap());
 
                 return runManager.createRun(domainRequest, tenantId)
                                 .map(mapper::toProtoRunResponse)

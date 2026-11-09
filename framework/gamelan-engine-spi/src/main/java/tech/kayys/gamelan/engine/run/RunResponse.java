@@ -21,6 +21,8 @@ public class RunResponse {
     private Integer maxAttempts;
     private String errorMessage;
     private Map<String, Object> outputs = Map.of();
+    private Map<String, String> labels = Map.of();
+    private String correlationId;
 
     public RunResponse() {
     }
@@ -166,6 +168,22 @@ public class RunResponse {
         this.outputs = ExecutionPayloads.immutableMap(outputs);
     }
 
+    public Map<String, String> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(Map<String, String> labels) {
+        this.labels = labels == null ? Map.of() : Map.copyOf(labels);
+    }
+
+    public String getCorrelationId() {
+        return correlationId;
+    }
+
+    public void setCorrelationId(String correlationId) {
+        this.correlationId = correlationId;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -186,6 +204,18 @@ public class RunResponse {
         private Integer maxAttempts;
         private String errorMessage;
         private Map<String, Object> outputs;
+        private Map<String, String> labels;
+        private String correlationId;
+
+        public Builder labels(Map<String, String> labels) {
+            this.labels = labels;
+            return this;
+        }
+
+        public Builder correlationId(String correlationId) {
+            this.correlationId = correlationId;
+            return this;
+        }
 
         public Builder runId(String runId) {
             this.runId = runId;
@@ -263,9 +293,12 @@ public class RunResponse {
         }
 
         public RunResponse build() {
-            return new RunResponse(runId, workflowId, workflowVersion, status, phase, createdAt, startedAt,
+            RunResponse r = new RunResponse(runId, workflowId, workflowVersion, status, phase, createdAt, startedAt,
                     completedAt, durationMs, nodesExecuted, nodesTotal, attemptNumber,
                     maxAttempts, errorMessage, outputs);
+            r.setLabels(labels);
+            r.setCorrelationId(correlationId);
+            return r;
         }
     }
 }

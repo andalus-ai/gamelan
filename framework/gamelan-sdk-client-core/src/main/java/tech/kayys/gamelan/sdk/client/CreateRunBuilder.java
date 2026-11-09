@@ -77,6 +77,7 @@ public class CreateRunBuilder {
                 inputs,
                 correlationId,
                 autoStart);
+        request.setLabels(labels);
         return client.createRun(request);
     }
 
