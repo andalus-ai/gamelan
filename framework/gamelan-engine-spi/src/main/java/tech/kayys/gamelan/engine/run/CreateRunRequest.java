@@ -13,6 +13,7 @@ public class CreateRunRequest {
 
     private Map<String, Object> inputs = Map.of();
     private String correlationId;
+    private Map<String, String> labels = Map.of();
     private boolean autoStart = true;
 
     // Resolved at the API boundary (REST/gRPC layer) — not set by callers directly
@@ -70,6 +71,14 @@ public class CreateRunRequest {
         this.correlationId = correlationId;
     }
 
+    public Map<String, String> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(Map<String, String> labels) {
+        this.labels = labels == null ? Map.of() : Map.copyOf(labels);
+    }
+
     public boolean isAutoStart() {
         return autoStart;
     }
@@ -83,6 +92,7 @@ public class CreateRunRequest {
     }
 
     public static class Builder {
+        private Map<String, String> labels;
         private String workflowId;
         private String workflowVersion;
         private Map<String, Object> inputs;
@@ -110,6 +120,11 @@ public class CreateRunRequest {
             return this;
         }
 
+        public Builder labels(Map<String, String> labels) {
+            this.labels = labels;
+            return this;
+        }
+
         public Builder autoStart(boolean autoStart) {
             this.autoStart = autoStart;
             return this;
@@ -123,6 +138,7 @@ public class CreateRunRequest {
         public CreateRunRequest build() {
             CreateRunRequest r = new CreateRunRequest(workflowId, workflowVersion, inputs, correlationId, autoStart);
             r.setTenantId(tenantId);
+            r.setLabels(labels);
             return r;
         }
     }
@@ -134,6 +150,7 @@ public class CreateRunRequest {
                 ", workflowVersion='" + workflowVersion + '\'' +
                 ", inputs=" + inputs +
                 ", correlationId='" + correlationId + '\'' +
+                ", labels=" + labels +
                 ", autoStart=" + autoStart +
                 '}';
     }
