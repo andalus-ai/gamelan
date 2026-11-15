@@ -33,7 +33,9 @@ public class RunResponseMapper {
                 .completedAt(snapshot.completedAt())
                 .durationMs(durationMs)
                 .nodesExecuted(snapshot.nodeExecutions().size())
-                .outputs(snapshot.variables())
+                .outputs(RunMetadata.userVariables(snapshot.variables()))
+                .labels(RunMetadata.labels(snapshot.variables()))
+                .correlationId(RunMetadata.correlationId(snapshot.variables()))
                 .build();
     }
 }
